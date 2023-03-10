@@ -7,12 +7,6 @@ ENV TOMCAT_MAJOR=10 \
     CATALINA_HOME=/opt/tomcat \
     JAVA_HOME=/usr/local/openjdk-17
 
-# Install required packages
-RUN apt-get update && \
-    apt-get install -y curl && \
-    apt-get clean && \
-    rm -rf /var/lib/apt/lists/*
-
 # Download and install Tomcat
 RUN curl -O https://downloads.apache.org/tomcat/tomcat-${TOMCAT_MAJOR}/v${TOMCAT_VERSION}/bin/apache-tomcat-${TOMCAT_VERSION}.tar.gz && \
     tar -xvf apache-tomcat-${TOMCAT_VERSION}.tar.gz && \
